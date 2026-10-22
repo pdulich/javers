@@ -911,6 +911,11 @@ public class JaversBuilder extends AbstractContainerBuilder {
         return this;
     }
 
+    public JaversBuilder withCascadingMode(CascadingMode cascadingMode) {
+        configurationBuilder().withCascadingMode(cascadingMode);
+        return this;
+    }
+
     public JaversBuilder withProperties(JaversCoreProperties javersProperties) {
         if (javersProperties.getMappingStyle() != null) {
             withMappingStyle(MappingStyle.valueOf(javersProperties.getMappingStyle().toUpperCase()));
@@ -941,6 +946,9 @@ public class JaversBuilder extends AbstractContainerBuilder {
         }
         if (javersProperties.isPrintProBanner() != null) {
             withPrintProBanner(javersProperties.isPrintProBanner());
+        }
+        if (javersProperties.getCascadingMode() != null) {
+            withCascadingMode(javersProperties.getCascadingMode());
         }
 
         withPrettyPrintDateFormats(javersProperties.getPrettyPrintDateFormats());
